@@ -15,6 +15,21 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
   }
+
+  /* 
+    *sm
+    @media screen and (max-width: 569px) {
+    }
+      * md
+    @media screen and (max-width: 799px) {
+    }
+      * lg
+    @media screen and (max-width: 999px) {
+    }
+      * xl
+    @media screen and (min-width: 1000px) {
+    }
+  */
 `;
 
 export { GlobalStyle };

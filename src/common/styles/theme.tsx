@@ -1,7 +1,7 @@
 export const theme = {
   bg__primary: '#5700AD',
 
-  text__primary: '#fff',
+  text__primary: '#DFF0FB',
 
   btn__primary: '#8235D6',
 
