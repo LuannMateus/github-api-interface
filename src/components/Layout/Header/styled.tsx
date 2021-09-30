@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-const HomeContainer = styled.div`
+const Header = styled.header`
   display: flex;
   flex-direction: column;
 
-  width: 100%;
+  background-color: ${({ theme }) => theme.bg__primary};
 
   @media screen and (min-width: 1000px) {
     width: 100%;
   }
 `;
 
-export { HomeContainer };
+export { Header };

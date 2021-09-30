@@ -4,7 +4,13 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     margin: 0;
     padding: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
+
+    max-width: 100%;
+
+    height: 100vh;
+    width: 100%;
+    
   }
 
   body, button {

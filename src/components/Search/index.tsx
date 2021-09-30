@@ -4,9 +4,10 @@ import { FC, useState } from 'react';
 
 type SearchProps = {
   handleClick: (username: string) => void;
+  handleRepository: (username: string) => void;
 };
 
-const Search: FC<SearchProps> = ({ handleClick }) => {
+const Search: FC<SearchProps> = ({ handleClick, handleRepository }) => {
   const [userInput, setUserInput] = useState('');
 
   return (
@@ -15,7 +16,14 @@ const Search: FC<SearchProps> = ({ handleClick }) => {
         placeholder="Account name..."
         onChange={event => setUserInput(event.target.value)}
       />
-      <Button onClick={() => handleClick(userInput)}>Search</Button>
+      <Button
+        onClick={() => {
+          handleClick(userInput);
+          handleRepository(userInput);
+        }}
+      >
+        Search
+      </Button>
     </SearchContainer>
   );
 };

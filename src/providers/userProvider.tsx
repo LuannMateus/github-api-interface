@@ -2,14 +2,14 @@ import { createContext, FC, ReactNode, useState } from 'react';
 import { User } from '../models/User';
 import { UserService } from '../service/userService';
 
-type UserProviderProps = {
+interface UserProviderProps {
   children: ReactNode;
-};
+}
 
-type UserContextProps = {
+interface UserContextProps {
   user: User;
   handleUser: (username: string) => void;
-};
+}
 
 const initialUserState = {
   avatar_url: '',

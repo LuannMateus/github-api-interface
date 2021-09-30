@@ -1,6 +1,8 @@
 import { Button } from './Button/styled';
-import { Layout } from './Layout/styled';
+import { Header, Layout } from './Layout/';
 import { Search } from './Search/';
 import { Profile } from './Profile';
+import { Repository } from './Repository';
+import { Footer } from './Footer';
 
-export { Layout, Button, Search, Profile };
+export { Header, Layout, Button, Search, Profile, Repository, Footer };
