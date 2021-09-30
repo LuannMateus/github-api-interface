@@ -1,25 +1,19 @@
 import { useEffect } from 'react';
 import * as S from '../../components/';
-import { useRepository } from '../../hooks/useRepository';
 import { useUser } from '../../hooks/useUser';
 import { HomeContainer } from './styled';
 
 const Home = () => {
-  const { user, handleUser } = useUser();
-  const { repository, handleUserRepositories } = useRepository();
+  const { user, repository, handleUserAndRepository } = useUser();
 
   useEffect(() => {
-    handleUser('luannmateus');
-    handleUserRepositories('luannmateus');
+    handleUserAndRepository('luannmateus');
   }, []);
 
   return (
     <HomeContainer>
       <S.Header>
-        <S.Search
-          handleClick={handleUser}
-          handleRepository={handleUserRepositories}
-        />
+        <S.Search handleClick={handleUserAndRepository} />
         <S.Profile {...user} />
       </S.Header>
       <S.Layout>
