@@ -32,6 +32,10 @@ const initialUserState = {
   location: '',
   login: '',
   name: '',
+  followers: 0,
+  following: 0,
+  public_gists: 0,
+  public_repos: 0,
 };
 
 export const UserContext = createContext<UserContextProps>({

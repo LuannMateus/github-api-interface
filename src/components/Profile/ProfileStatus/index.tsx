@@ -8,24 +8,29 @@ type ProfileStatusProps = {
   repos: number;
 };
 
-const ProfileStatus: FC<ProfileStatusProps> = ({ followers }) => {
+const ProfileStatus: FC<ProfileStatusProps> = ({
+  followers,
+  followings,
+  gits,
+  repos,
+}) => {
   return (
     <ProfileStatusContainer>
       <div className="profile-status">
         <p>Followers</p>
-        <span>0</span>
+        <span>{followers}</span>
       </div>
       <div className="profile-status">
         <p>Followings</p>
-        <span>0</span>
+        <span>{followings}</span>
       </div>
       <div className="profile-status">
         <p>Gits</p>
-        <span>0</span>
+        <span>{gits}</span>
       </div>
       <div className="profile-status">
         <p>Repos</p>
-        <span>0</span>
+        <span>{repos}</span>
       </div>
     </ProfileStatusContainer>
   );

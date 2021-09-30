@@ -5,4 +5,8 @@ export interface User {
   company: string;
   location: string;
   blog: string;
+  followers: number;
+  following: number;
+  public_gists: number;
+  public_repos: number;
 }

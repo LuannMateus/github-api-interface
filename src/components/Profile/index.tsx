@@ -11,6 +11,10 @@ const Profile: FC<User> = ({
   location,
   blog,
   avatar_url,
+  followers,
+  following,
+  public_gists,
+  public_repos,
 }) => {
   return (
     <ProfileContainer>
@@ -29,7 +33,12 @@ const Profile: FC<User> = ({
         <p>
           <span className="profile__field">Blog:</span> {blog}
         </p>
-        <ProfileStatus followers={0} followings={0} gits={0} repos={0} />
+        <ProfileStatus
+          followers={followers}
+          followings={following}
+          gits={public_gists}
+          repos={public_repos}
+        />
       </ProfileInformation>
     </ProfileContainer>
   );
