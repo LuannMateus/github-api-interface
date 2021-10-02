@@ -42,12 +42,15 @@ const ProfileInformation = styled.section`
   align-items: center;
 
   .profile__title {
+    text-align: center;
+
     margin-top: 14px;
     font-size: 2rem;
     font-weight: 400;
   }
 
   p {
+    text-align: center;
     color: ${({ theme }) => theme.text__primary};
   }
 

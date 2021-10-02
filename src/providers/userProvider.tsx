@@ -11,9 +11,10 @@ interface UserProviderProps {
 interface UserContextProps {
   user: User;
   repository: Repository[];
+  starredRepository: Repository[];
   handleUser: (username: string) => void;
   handleUserRepositories: (username: string) => void;
-  handleUserAndRepository: (username: string) => void;
+  handleUserAndRepositories: (username: string) => void;
 }
 
 const initialRepositoryState = [
@@ -41,9 +42,10 @@ const initialUserState = {
 export const UserContext = createContext<UserContextProps>({
   user: initialUserState,
   repository: initialRepositoryState,
+  starredRepository: initialRepositoryState,
   handleUser: () => {},
   handleUserRepositories: () => {},
-  handleUserAndRepository: () => {},
+  handleUserAndRepositories: () => {},
 });
 
 const UserProvider: FC<UserProviderProps> = ({ children }) => {
@@ -52,6 +54,9 @@ const UserProvider: FC<UserProviderProps> = ({ children }) => {
 
   const [user, setUser] = useState(initialUserState);
   const [repository, setRepository] = useState(initialRepositoryState);
+  const [starredRepository, setStarredRepository] = useState(
+    initialRepositoryState,
+  );
 
   const handleUser = async (username: string): Promise<void> => {
     const userPayload = await userService.findUser(username);
@@ -67,9 +72,21 @@ const UserProvider: FC<UserProviderProps> = ({ children }) => {
     setRepository(repositoriesPayload);
   };
 
-  const handleUserAndRepository = async (username: string) => {
-    await handleUser(username);
-    await handleUserRepositories(username);
+  const handleUserStarredRepositories = async (
+    username: string,
+  ): Promise<void> => {
+    const starredRepositoriesPayload =
+      await repositoryServicer.findUserStarredRepositories(username);
+
+    setStarredRepository(starredRepositoriesPayload);
+  };
+
+  const handleUserAndRepositories = async (username: string): Promise<void> => {
+    Promise.all([
+      handleUser(username),
+      handleUserRepositories(username),
+      handleUserStarredRepositories(username),
+    ]);
   };
 
   return (
@@ -77,9 +94,10 @@ const UserProvider: FC<UserProviderProps> = ({ children }) => {
       value={{
         user,
         repository,
+        starredRepository,
         handleUser,
         handleUserRepositories,
-        handleUserAndRepository,
+        handleUserAndRepositories,
       }}
     >
       {children}
